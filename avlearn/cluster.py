@@ -7,9 +7,9 @@ class my_kmeans:
     k = None
     labels_ = None
 
-    def __init__(self, clusters_k=2, max_iters=1000):
+    def __init__(self, n_clusters, max_iters=1000):
         self.max_iters = max_iters
-        self.k = clusters_k
+        self.k = n_clusters
 
     def fit(self, X):
         self.labels_ = np.array([i for i in range(len(X))])
