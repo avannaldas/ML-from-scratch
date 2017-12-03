@@ -12,7 +12,6 @@ class my_kmeans:
         self.k = n_clusters
 
     def fit(self, X):
-        self.labels_ = np.array([i for i in range(len(X))])
         self.centroids = X[np.random.choice(np.arange(len(X)), self.k), :]
         itr = 0
         while(itr < self.max_iters):
