@@ -18,10 +18,12 @@ class my_kmeans:
         while(itr < self.max_iters):
             # Assign Clusters
             self.clusters = [[] for _ in range(self.k)]
-            for x in X:
-                clst_ind = np.argmin([self._square_distance(x, cntr)
+            self.labels_ = np.array([i for i in range(len(X))])
+            for x in range(len(X)):
+                clst_ind = np.argmin([self._square_distance(X[x], cntr)
                                       for cntr in self.centroids])
-                self.clusters[clst_ind].extend(x)
+                self.labels_[x] = clst_ind
+                self.clusters[clst_ind].extend(X[x])
 
             # Update Centroids
             prev_centroids = self.centroids
